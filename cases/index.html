@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейсы сервисных центров — «Сальто»</title>
+  <meta name="description" content="Результаты по карточкам, SEO, рекламе и автоматизации. До и после, гипотезы и выводы.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a class="brand" href="/">Сальто</a>
+      <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+      <nav>
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/services/">Услуги</a></li>
+          <li><a href="/subscription/">Подписка</a></li>
+          <li><a class="active" href="/cases/">Кейсы</a></li>
+          <li><a href="/knowledge/">База знаний</a></li>
+          <li><a href="/webinars/">Вебинары</a></li>
+          <li><a href="/club/">Клуб</a></li>
+          <li><a href="/contact/">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="/contact/">Получить аудит</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div>
+          <div class="badge">Проверенные кейсы</div>
+          <h1>Кейсы: как сервисы выходят на стабильный поток заявок</h1>
+          <p>Каждый проект оформлен по схеме: контекст, гипотезы, действия, метрики. Смотрим на заявки и звонки, а не только на охваты.</p>
+          <div class="button-group">
+            <a class="btn btn-primary" href="/contact/">Получить аудит</a>
+            <a class="btn btn-secondary" href="/subscription/">Подписка 5–10 тыс. ₽</a>
+          </div>
+        </div>
+        <div>
+          <div class="placeholder-block">Коллаж карточек и дашбордов {подменить}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light">
+      <div class="container">
+        <h2>Фильтры</h2>
+        <form class="grid cols-3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <div>
+            <label for="filter-service">Тип услуги</label>
+            <select id="filter-service">
+              <option>Все</option>
+              <option>Карточки</option>
+              <option>SEO</option>
+              <option>Реклама</option>
+              <option>Автоматизация</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-platform">Платформа</label>
+            <select id="filter-platform">
+              <option>Все</option>
+              <option>Яндекс.Бизнес</option>
+              <option>2ГИС</option>
+              <option>Сайт</option>
+              <option>amoCRM</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-city">Город</label>
+            <input id="filter-city" type="text" placeholder="Например, Москва">
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid cols-3">
+          <article class="card">
+            <div class="tag">Карточки · Яндекс</div>
+            <h3>Apple-сервис в Санкт-Петербурге</h3>
+            <p><strong>Контекст:</strong> 2 точки, 15 заявок/неделю, средний чек 6 500 ₽.</p>
+            <p><strong>Результат:</strong> +{подменить}% заявок с карт, звонки +{подменить}%.</p>
+            <a class="btn btn-secondary" href="/cases/apple-service-spb.html">Смотреть кейс</a>
+          </article>
+          <article class="card">
+            <div class="tag">SEO · Контент</div>
+            <h3>Мультибрендовый сервис в Москве</h3>
+            <p><strong>Контекст:</strong> 1 точка + курьер, CPL 1 800 ₽.</p>
+            <p><strong>Результат:</strong> SEO даёт 40% заявок, CPL снизился на {подменить}%.</p>
+            <a class="btn btn-secondary" href="/cases/moscow-multibrand.html">Смотреть кейс</a>
+          </article>
+          <article class="card">
+            <div class="tag">Автоматизация</div>
+            <h3>Региональная сеть сервисов</h3>
+            <p><strong>Контекст:</strong> 3 точки, заявки в Excel.</p>
+            <p><strong>Результат:</strong> Потери лидов −{подменить}%, конверсия +{подменить}%.</p>
+            <a class="btn btn-secondary" href="/cases/regional-chain.html">Смотреть кейс</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light">
+      <div class="container" style="max-width:780px;">
+        <h2>Нужен такой же результат?</h2>
+        <p>Оставьте контакты — разберём ситуацию и предложим план. Аудит стоит 5 000 ₽, но зачтём в стоимость проекта.</p>
+        <form data-validate>
+          <div class="grid cols-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+            <div>
+              <label for="case-name">Имя</label>
+              <input id="case-name" type="text" name="name" placeholder="Как к вам обращаться?" data-required>
+            </div>
+            <div>
+              <label for="case-contact">Телефон или Telegram</label>
+              <input id="case-contact" type="text" name="contact" placeholder="+7… или @username" data-required>
+            </div>
+          </div>
+          <div>
+            <label for="case-service">Какая услуга интересна?</label>
+            <select id="case-service" name="service" data-required>
+              <option value="">Выберите</option>
+              <option>Карточки</option>
+              <option>SEO</option>
+              <option>Реклама</option>
+              <option>Автоматизация</option>
+              <option>Подписка</option>
+            </select>
+          </div>
+          <label><input type="checkbox" name="policy" data-required> Согласен на обработку данных согласно <a href="/legal/privacy.html">политике</a>.</label>
+          <button class="btn btn-primary" type="submit">Получить аудит</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <a class="brand" href="/" style="color:#f5f5f5;">Сальто</a>
+        <p>Маркетинговое агентство для сервисных центров. Карточки, SEO, Яндекс.Директ и автоматизация процессов.</p>
+        <div class="inline-list">
+          <span class="chip">Яндекс.Бизнес</span>
+          <span class="chip">2ГИС</span>
+          <span class="chip">SEO</span>
+          <span class="chip">CRM</span>
+        </div>
+      </div>
+      <div>
+        <h3>Навигация</h3>
+        <ul>
+          <li><a href="/services/">Услуги</a></li>
+          <li><a href="/subscription/">Подписка</a></li>
+          <li><a href="/cases/">Кейсы</a></li>
+          <li><a href="/knowledge/">База знаний</a></li>
+          <li><a href="/assistants/">ИИ-ассистенты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <p>Telegram: <a href="https://t.me/{подменить}">@{подменить}</a></p>
+        <p>Почта: <a href="mailto:hello@salto.marketing">hello@salto.marketing</a></p>
+        <p>Время ответа: до 4 часов в будни.</p>
+      </div>
+      <div>
+        <h3>Документы</h3>
+        <ul>
+          <li><a href="/legal/privacy.html">Политика конфиденциальности</a></li>
+          <li><a href="/legal/offer.html">Публичная оферта</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container" style="margin-top:2rem;">
+      <p>© {подменить год} «Сальто». Все права защищены.</p>
+      <div class="legal">
+        <a href="/legal/privacy.html">Политика</a>
+        <a href="/legal/offer.html">Оферта</a>
+        <a href="/contact/">Связаться</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
