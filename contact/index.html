@@ -40,7 +40,10 @@
           <p><strong>Города работы:</strong> РФ и СНГ · <strong>Время ответа:</strong> до 4 часов в будни.</p>
         </div>
         <div>
-          <div class="placeholder-block">Карта и точки {подменить}</div>
+          <figure class="media-card media-card--contact" data-parallax>
+            <img src="/assets/img/illustration-contact.svg" alt="Иллюстрация контактов и карты">
+            <figcaption>Карта и точки {подменить}</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -49,7 +52,7 @@
       <div class="container">
         <h2>Быстрый контакт</h2>
         <form data-validate>
-          <div class="grid cols-3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+          <div class="grid cols-3 auto-fit-260 gap-sm">
             <div>
               <label for="quick-name">Имя</label>
               <input id="quick-name" type="text" name="name" placeholder="Как к вам обращаться?" data-required>
@@ -77,7 +80,7 @@
           <form data-validate>
             <div class="quiz-step active">
               <h3>Города и количество точек</h3>
-              <div class="grid cols-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+              <div class="grid cols-2 auto-fit-260 gap-sm">
                 <div>
                   <label for="quiz-city">Город(а)</label>
                   <input id="quiz-city" name="cities" type="text" placeholder="Москва, Санкт-Петербург" data-required>
@@ -99,7 +102,7 @@
               <label><input type="radio" name="cards" value="yandex"> Только Яндекс</label>
               <label><input type="radio" name="cards" value="2gis"> Только 2ГИС</label>
               <label><input type="radio" name="cards" value="none"> Нет карточек</label>
-              <label for="quiz-links" style="margin-top:1rem;">Ссылки (если есть)</label>
+              <label class="label-spaced" for="quiz-links">Ссылки (если есть)</label>
               <textarea id="quiz-links" name="links" rows="3" placeholder="https://yandex.ru/profile/..." ></textarea>
               <div class="quiz-nav">
                 <button class="btn btn-secondary" type="button" data-quiz-prev>Назад</button>
@@ -114,7 +117,7 @@
               <label><input type="checkbox" name="crm" value="none"> Нет CRM</label>
               <label><input type="checkbox" name="tracking" value="yes"> Есть коллтрекинг</label>
               <label><input type="checkbox" name="tracking" value="no"> Нет коллтрекинга</label>
-              <label for="quiz-budget" style="margin-top:1rem;">Бюджет на рекламу</label>
+              <label class="label-spaced" for="quiz-budget">Бюджет на рекламу</label>
               <input id="quiz-budget" type="text" name="budget" placeholder="Например, 60 000 ₽">
               <div class="quiz-nav">
                 <button class="btn btn-secondary" type="button" data-quiz-prev>Назад</button>
@@ -124,7 +127,7 @@
 
             <div class="quiz-step">
               <h3>Контактные данные</h3>
-              <div class="grid cols-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+              <div class="grid cols-2 auto-fit-260 gap-sm">
                 <div>
                   <label for="quiz-name">Имя</label>
                   <input id="quiz-name" type="text" name="name" placeholder="Как к вам обращаться?" data-required>
@@ -150,7 +153,7 @@
   <footer class="footer">
     <div class="container">
       <div>
-        <a class="brand" href="/" style="color:#f5f5f5;">Сальто</a>
+        <a class="brand" href="/">Сальто</a>
         <p>Маркетинговое агентство для сервисных центров. Карточки, SEO, Яндекс.Директ и автоматизация процессов.</p>
         <div class="inline-list">
           <span class="chip">Яндекс.Бизнес</span>
@@ -184,7 +187,7 @@
         </ul>
       </div>
     </div>
-    <div class="container" style="margin-top:2rem;">
+    <div class="container footer-bottom">
       <p>© {подменить год} «Сальто». Все права защищены.</p>
       <div class="legal">
         <a href="/legal/privacy.html">Политика</a>
@@ -193,6 +196,6 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

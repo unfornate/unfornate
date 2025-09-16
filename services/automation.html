@@ -40,14 +40,17 @@
           </div>
         </div>
         <div>
-          <div class="placeholder-block">Схема автоматизации {подменить}</div>
+          <figure class="media-card media-card--service" data-parallax>
+            <img src="/assets/img/illustration-service-automation.svg" alt="Иллюстрация автоматизации CRM и ботов">
+            <figcaption>Схема автоматизации {подменить}</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="grid" style="gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+        <div class="grid auto-fit-320 gap-lg">
           <div class="card">
             <h2>Проблема клиента</h2>
             <p>Лиды теряются в чатах, менеджеры забывают перезвонить, нет единой базы клиентов. Отчёты собираются вручную в Excel, повторные продажи не отслеживаются.</p>
@@ -69,7 +72,7 @@
     <section class="section light">
       <div class="container">
         <h2>Состав проекта и входные данные</h2>
-        <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;">
+        <div class="grid auto-fit-320 gap-md">
           <div class="table-card">
             <h3>Работы</h3>
             <ul>
@@ -117,11 +120,11 @@
 
     <section class="section light">
       <div class="container">
-        <div class="card" style="max-width:760px;margin:0 auto;">
+        <div class="card card-narrow">
           <h2>Запросить автоматизацию</h2>
           <p>Расскажите о текущем процессе — подготовим дорожную карту внедрения.</p>
           <form data-validate>
-            <div class="grid cols-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+            <div class="grid cols-2 auto-fit-260 gap-sm">
               <div>
                 <label for="auto-name">Имя</label>
                 <input id="auto-name" type="text" name="name" placeholder="Как к вам обращаться?" data-required>
@@ -149,7 +152,7 @@
   <footer class="footer">
     <div class="container">
       <div>
-        <a class="brand" href="/" style="color:#f5f5f5;">Сальто</a>
+        <a class="brand" href="/">Сальто</a>
         <p>Маркетинговое агентство для сервисных центров. Карточки, SEO, Яндекс.Директ и автоматизация процессов.</p>
         <div class="inline-list">
           <span class="chip">Яндекс.Бизнес</span>
@@ -183,7 +186,7 @@
         </ul>
       </div>
     </div>
-    <div class="container" style="margin-top:2rem;">
+    <div class="container footer-bottom">
       <p>© {подменить год} «Сальто». Все права защищены.</p>
       <div class="legal">
         <a href="/legal/privacy.html">Политика</a>
@@ -192,6 +195,6 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

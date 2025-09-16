@@ -38,7 +38,7 @@
             <a class="btn btn-primary" href="/contact/">Получить аудит за 48 часов</a>
             <a class="btn btn-secondary" href="/cases/">Посмотреть кейсы</a>
           </div>
-          <div class="stats" style="margin-top:2rem;">
+          <div class="stats">
             <div class="stats-item">
               <strong>5–10 тыс. ₽</strong>
               <span>Подписка на маркетинг-поддержку</span>
@@ -54,7 +54,10 @@
           </div>
         </div>
         <div>
-          <div class="placeholder-block">Место для фото команды или процесса {подменить}</div>
+          <figure class="media-card media-card--hero" data-parallax>
+            <img src="/assets/img/illustration-hero.svg" alt="Иллюстрация работы маркетинговой команды">
+            <figcaption>Фото команды или процесса {подменить}</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -85,7 +88,7 @@
 
     <section class="section light">
       <div class="container">
-        <div class="grid" style="gap:3rem;">
+        <div class="grid auto-fit-320 gap-xl">
           <div>
             <h2>Подписка вместо бессистемных подрядчиков</h2>
             <p class="lead">За 5–10 тыс. ₽ в месяц вы получаете команду, которая контролирует карточки, рекламу, контент и автоматизацию. Все задачи фиксируем в трекере, SLA на ответы — до 4 часов.</p>
@@ -96,7 +99,7 @@
               <li>Ежемесячный отчёт с цифрами по заявкам, звонкам и конверсии в продажи.</li>
               <li>Чёткие границы ответственности: что нужно от клиента, что делаем мы, какие сроки внедрения.</li>
             </ul>
-            <div class="button-group" style="margin-top:2rem;">
+            <div class="button-group mt-lg">
               <a class="btn btn-primary" href="/subscription/">Подключить подписку</a>
               <a class="btn btn-secondary" href="/pricing/">Посмотреть тарифы</a>
             </div>
@@ -144,7 +147,7 @@
             <a class="btn btn-secondary" href="/cases/regional-chain.html">Смотреть кейс</a>
           </article>
         </div>
-        <div style="text-align:center;margin-top:2.5rem;">
+        <div class="centered-cta mt-xl">
           <a class="btn btn-primary" href="/cases/">Все кейсы</a>
         </div>
       </div>
@@ -220,17 +223,23 @@
         <p class="lead">Работаем с локальными сервисами, сетями и авторизованными партнёрами. Вот что говорят клиенты.</p>
         <div class="grid cols-3">
           <div class="card">
-            <div class="placeholder-block" style="min-height:120px;">Логотип {подменить}</div>
+            <figure class="logo-card">
+              <img src="/assets/img/logo-sample-1.svg" alt="Логотип клиента {подменить}">
+            </figure>
             <blockquote>«Наконец-то перестали тушить пожары в маркетинге. Карточки ожили, а менеджеры перестали спорить с клиентами по скриптам.»</blockquote>
             <p><strong>{подменить}</strong>, руководитель сервисного центра</p>
           </div>
           <div class="card">
-            <div class="placeholder-block" style="min-height:120px;">Логотип {подменить}</div>
+            <figure class="logo-card">
+              <img src="/assets/img/logo-sample-2.svg" alt="Логотип партнёра {подменить}">
+            </figure>
             <blockquote>«За три месяца видим +{подменить}% к звонкам с карт. Отчёты понятные, можно планировать загрузку мастеров.»</blockquote>
             <p><strong>{подменить}</strong>, совладелец мастерской</p>
           </div>
           <div class="card">
-            <div class="placeholder-block" style="min-height:120px;">Логотип {подменить}</div>
+            <figure class="logo-card">
+              <img src="/assets/img/logo-sample-3.svg" alt="Логотип сети {подменить}">
+            </figure>
             <blockquote>«Внедрение amoCRM и бота для прайса спасло нас в сезон. Теперь никто не забывает перезванивать клиенту.»</blockquote>
             <p><strong>{подменить}</strong>, операционный директор</p>
           </div>
@@ -266,7 +275,7 @@
 
     <section class="section light">
       <div class="container">
-        <div class="card" style="max-width:760px;margin:0 auto;">
+        <div class="card card-narrow">
           <h2>Получите чек-лист «Упаковка карточки сервиса»</h2>
           <p>Введите контакты — отправим чек-лист и предложим удобное время для консультации. Всё без навязчивых звонков.</p>
           <form data-validate>
@@ -319,7 +328,7 @@
   <footer class="footer">
     <div class="container">
       <div>
-        <a class="brand" href="/" style="color:#f5f5f5;">Сальто</a>
+        <a class="brand" href="/">Сальто</a>
         <p>Маркетинговое агентство для сервисных центров. Карточки, SEO, Яндекс.Директ и автоматизация процессов.</p>
         <div class="inline-list">
           <span class="chip">Яндекс.Бизнес</span>
@@ -353,7 +362,7 @@
         </ul>
       </div>
     </div>
-    <div class="container" style="margin-top:2rem;">
+    <div class="container footer-bottom">
       <p>© {подменить год} «Сальто». Все права защищены.</p>
       <div class="legal">
         <a href="/legal/privacy.html">Политика</a>
@@ -362,6 +371,6 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
