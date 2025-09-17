@@ -39,6 +39,11 @@
   function persistChanges() {
     dictionary.rules.sort((a, b) => (b.priority || 0) - (a.priority || 0));
     App.saveDictionary(dictionary);
+    if (typeof App.reclassifyAll === 'function') {
+      App.reclassifyAll();
+    } else if (typeof App.applyDictionaryToLedger === 'function') {
+      App.applyDictionaryToLedger();
+    }
     App.toast('Словарь сохранён', { type: 'success' });
     renderTable(document.getElementById('dict-search').value);
   }
