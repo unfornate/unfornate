@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Операции</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html" class="active">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Импорт PDF</div>
+      <div class="upload">
+        <div id="drop-zone" class="drop-zone">
+          <input id="file-input" type="file" accept="application/pdf" multiple hidden>
+          <div>
+            <strong>Перетащите сюда PDF</strong> или <button class="btn secondary" type="button" id="btn-open-file">Выберите файл</button>
+          </div>
+          <p class="muted">Поддерживаются Т-Банк и Альфа-Банк. Файлы не покидают ваш компьютер.</p>
+        </div>
+        <div class="upload-options">
+          <label>Банк
+            <select id="bank-select">
+              <option value="">Автоопределение</option>
+              <option value="tbank">Т-Банк</option>
+              <option value="alfa">Альфа-Банк</option>
+            </select>
+          </label>
+          <div id="bank-detection" class="badge">Банк не определён.</div>
+          <div class="progress-line"><span id="upload-progress-text"></span><div class="progress"><div class="progress-bar" id="upload-progress-bar"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">Фильтры</div>
+      <div class="filters">
+        <input type="search" id="filter-text" placeholder="Поиск по описанию">
+        <select id="filter-bank"></select>
+        <select id="filter-category"></select>
+        <input type="date" id="filter-start">
+        <input type="date" id="filter-end">
+        <div class="filter-type">
+          <label><input type="radio" name="filter-type" value="all" checked> Все</label>
+          <label><input type="radio" name="filter-type" value="income"> Только пополнения</label>
+          <label><input type="radio" name="filter-type" value="expense"> Только расходы</label>
+        </div>
+        <div class="filter-actions">
+          <button class="btn secondary" id="btn-export-csv">Экспорт CSV</button>
+          <button class="btn secondary" id="btn-export-xlsx">Экспорт XLSX</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">Операции <span id="ops-count" class="badge">0</span></div>
+      <div class="table-wrapper">
+        <table id="tbl-operations">
+          <thead>
+            <tr>
+              <th data-sort="date">Дата</th>
+              <th>Описание</th>
+              <th data-sort="category">Категория</th>
+              <th data-sort="subcategory">Подкатегория</th>
+              <th data-sort="amount" class="right">Сумма</th>
+              <th>Комментарий</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/pdf.min.js"></script>
+  <script src="assets/pdf.worker.min.js"></script>
+  <script src="assets/xlsx.full.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/bank-detect.js"></script>
+  <script src="js/pdf-reader.js"></script>
+  <script src="js/parse-tbank.js"></script>
+  <script src="js/parse-alfa.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/exporter.js"></script>
+  <script src="js/ui-transactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Дашборд</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html" class="active">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div class="period">
+        <input type="month" id="month">
+        <select id="granularity">
+          <option value="D">Дни</option>
+          <option value="W">Недели</option>
+          <option value="M" selected>Месяцы</option>
+        </select>
+      </div>
+      <div class="actions">
+        <a class="btn" href="transactions.html">К операциям →</a>
+      </div>
+    </header>
+
+    <section class="grid grid-kpi">
+      <div class="card kpi"><div class="kpi-title">Доход</div><div id="kpi-revenue" class="kpi-value">—</div></div>
+      <div class="card kpi"><div class="kpi-title">Расход</div><div id="kpi-expense" class="kpi-value">—</div></div>
+      <div class="card kpi"><div class="kpi-title">Профит</div><div id="kpi-profit" class="kpi-value">—</div></div>
+      <div class="card kpi"><div class="kpi-title">Ранвей</div><div id="kpi-runway" class="kpi-value">—</div></div>
+      <div class="card kpi"><div class="kpi-title">Выплаты в пути</div><div id="kpi-pending" class="kpi-value">—</div></div>
+    </section>
+
+    <section class="grid grid-2">
+      <div class="card">
+        <div class="card-title">Доход / Расход</div>
+        <div class="chart-holder"><canvas id="chart-trend"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Распределение расходов</div>
+        <div class="chart-holder"><canvas id="chart-cats"></canvas></div>
+      </div>
+    </section>
+
+    <section class="grid grid-2">
+      <div class="card">
+        <div class="card-title">Кэшфлоу (недели)</div>
+        <div class="chart-holder"><canvas id="chart-cashflow"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Топ-5 расходов</div>
+        <div class="table-wrapper">
+          <table id="tbl-top">
+            <thead><tr><th>Статья</th><th class="right">Сумма</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/pivot.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui-dashboard.js"></script>
+</body>
+</html>
