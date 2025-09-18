@@ -26,17 +26,18 @@
       <div class="card-title">Создание правил из операций</div>
       <div class="filters">
         <input type="search" id="unknown-search" placeholder="Фильтр по описанию">
+        <input type="text" id="unknown-fragment" placeholder="Фрагмент для правила (опционально)">
         <select id="unknown-type">
           <option value="substring">substring</option>
           <option value="exact">exact</option>
           <option value="regex">regex</option>
         </select>
-        <input type="text" id="unknown-pattern" placeholder="Паттерн (для regex)">
         <input type="text" id="unknown-normalize" placeholder="Normalize to">
         <input type="text" id="unknown-category" placeholder="Категория">
         <input type="text" id="unknown-subcategory" placeholder="Подкатегория">
         <input type="number" id="unknown-priority" value="1200" step="10">
         <button class="btn" id="unknown-create">Создать правило</button>
+        <div class="filters-note" id="unknown-preview"></div>
       </div>
       <div class="table-wrapper">
         <table id="unknown-table">
