@@ -9,6 +9,11 @@
     preferences: 'finance-preferences'
   };
 
+  const COMPRESSED_STORAGE_KEYS = {
+    ledger: 'finance-ledger-compressed',
+    unknown: 'finance-unknown-compressed'
+  };
+
   const state = {
     ledger: [],
     unknown: [],
@@ -55,6 +60,51 @@
     }
   }
 
+  function getCompressor() {
+    return (typeof globalThis !== 'undefined' && globalThis.LZString) || null;
+  }
+
+  function compressString(value) {
+    const compressor = getCompressor();
+    if (compressor && typeof compressor.compressToUTF16 === 'function') {
+      return compressor.compressToUTF16(value);
+    }
+    return value;
+  }
+
+  function decompressString(value) {
+    if (!value) return null;
+    const compressor = getCompressor();
+    if (compressor && typeof compressor.decompressFromUTF16 === 'function') {
+      const restored = compressor.decompressFromUTF16(value);
+      if (restored !== null) return restored;
+    }
+    return value;
+  }
+
+  function persistCompressed(key, value) {
+    if (value === undefined) {
+      localStorage.removeItem(key);
+      return;
+    }
+    const json = JSON.stringify(value);
+    const compressed = compressString(json);
+    localStorage.setItem(key, compressed);
+  }
+
+  function loadCompressed(key) {
+    try {
+      const stored = localStorage.getItem(key);
+      if (!stored) return null;
+      const json = decompressString(stored);
+      if (typeof json !== 'string') return null;
+      return safeParse(json, null);
+    } catch (err) {
+      console.warn('Failed to read compressed storage', err);
+      return null;
+    }
+  }
+
   function formatCurrency(value, currency = state.preferences.currency || 'RUB', digits = 2) {
     if (value === null || value === undefined || Number.isNaN(value)) return '—';
     return new Intl.NumberFormat('ru-RU', {
@@ -89,8 +139,34 @@
   }
 
   function loadInitialState() {
-    state.ledger = safeParse(localStorage.getItem(STORAGE_KEYS.ledger), []);
-    state.unknown = safeParse(localStorage.getItem(STORAGE_KEYS.unknown), []);
+    const compressedLedger = loadCompressed(COMPRESSED_STORAGE_KEYS.ledger);
+    if (Array.isArray(compressedLedger)) {
+      state.ledger = compressedLedger;
+    } else {
+      state.ledger = safeParse(localStorage.getItem(STORAGE_KEYS.ledger), []);
+      try {
+        persistCompressed(COMPRESSED_STORAGE_KEYS.ledger, state.ledger);
+        localStorage.removeItem(STORAGE_KEYS.ledger);
+      } catch (err) {
+        if (!(err && err.name === 'QuotaExceededError')) {
+          console.warn('Failed to migrate legacy ledger storage', err);
+        }
+      }
+    }
+    const compressedUnknown = loadCompressed(COMPRESSED_STORAGE_KEYS.unknown);
+    if (Array.isArray(compressedUnknown)) {
+      state.unknown = compressedUnknown;
+    } else {
+      state.unknown = safeParse(localStorage.getItem(STORAGE_KEYS.unknown), []);
+      try {
+        persistCompressed(COMPRESSED_STORAGE_KEYS.unknown, state.unknown);
+        localStorage.removeItem(STORAGE_KEYS.unknown);
+      } catch (err) {
+        if (!(err && err.name === 'QuotaExceededError')) {
+          console.warn('Failed to migrate legacy unknown storage', err);
+        }
+      }
+    }
     const storedDict = safeParse(localStorage.getItem(STORAGE_KEYS.dictionary), null);
     if (storedDict) {
       state.dictionary = storedDict;
@@ -108,8 +184,19 @@
 
   function saveLedger(ledger, { silent } = {}) {
     state.ledger = Array.isArray(ledger) ? ledger : [];
-    persist(STORAGE_KEYS.ledger, state.ledger);
+    let error;
+    try {
+      persistCompressed(COMPRESSED_STORAGE_KEYS.ledger, state.ledger);
+      localStorage.removeItem(STORAGE_KEYS.ledger);
+    } catch (err) {
+      if (err && err.name === 'QuotaExceededError') {
+        console.warn('Failed to persist ledger: quota exceeded', err);
+      } else {
+        error = err;
+      }
+    }
     if (!silent) emitter.emit('ledger:updated', state.ledger);
+    if (error) throw error;
   }
 
   function addOperations(ops) {
@@ -123,8 +210,19 @@
 
   function saveUnknown(list) {
     state.unknown = Array.isArray(list) ? list : [];
-    persist(STORAGE_KEYS.unknown, state.unknown);
+    let error;
+    try {
+      persistCompressed(COMPRESSED_STORAGE_KEYS.unknown, state.unknown);
+      localStorage.removeItem(STORAGE_KEYS.unknown);
+    } catch (err) {
+      if (err && err.name === 'QuotaExceededError') {
+        console.warn('Failed to persist unknown operations: quota exceeded', err);
+      } else {
+        error = err;
+      }
+    }
     emitter.emit('unknown:updated', state.unknown);
+    if (error) throw error;
   }
 
   function pushUnknown(items) {
@@ -262,6 +360,7 @@
 
   window.App = {
     STORAGE_KEYS,
+    COMPRESSED_STORAGE_KEYS,
     state,
     on: emitter.on.bind(emitter),
     emit: emitter.emit.bind(emitter),
