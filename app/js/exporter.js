@@ -1,15 +1,16 @@
 (function () {
-  const CSV_HEADERS = ['Дата', 'Описание', 'Категория', 'Подкатегория', 'Сумма', 'Источник', 'Комментарий'];
+  const CSV_HEADERS = ['Дата', 'Описание', 'Категория', 'Подкатегория', 'Сегмент', 'Сумма', 'Источник', 'Комментарий'];
 
   function formatRow(op) {
     const date = App.formatDate(op.date);
     const title = (op.title || op.title_raw || '').replace(/"/g, '""');
     const category = (op.category || '').replace(/"/g, '""');
     const subcategory = (op.subcategory || '').replace(/"/g, '""');
+    const scope = (op.scope || '').replace(/"/g, '""');
     const amount = (op.amount || 0).toString().replace('.', ',');
     const source = op.source_file || op.bank || op.source_pdf || '';
     const comment = (op.comment || '').replace(/"/g, '""');
-    return [date, title, category, subcategory, amount, source, comment]
+    return [date, title, category, subcategory, scope, amount, source, comment]
       .map(value => `"${value}"`).join(';');
   }
 
@@ -34,6 +35,7 @@
       'Описание': op.title || op.title_raw,
       'Категория': op.category || '',
       'Подкатегория': op.subcategory || '',
+      'Сегмент': op.scope || '',
       'Сумма': op.amount,
       'Валюта': op.currency || 'RUB',
       'Банк': op.bank,

@@ -48,7 +48,8 @@
         id: `mcc_${mcc}`,
         normalize_to: override.normalize_to || operation.title,
         category: override.category || operation.category,
-        subcategory: override.subcategory || operation.subcategory
+        subcategory: override.subcategory || operation.subcategory,
+        scope: override.scope || operation.scope
       };
     }
 
@@ -71,6 +72,7 @@
       title: normalizedTitle || operation.title,
       category: matchedRule.category || operation.category,
       subcategory: matchedRule.subcategory || operation.subcategory,
+      scope: matchedRule.scope || operation.scope || null,
       matchedRule: matchedRule.id || matchedRule.match?.value || matchedRule.match?.pattern || null
     };
   }

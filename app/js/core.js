@@ -248,15 +248,6 @@
     });
   }
 
-  function readFileAsArrayBuffer(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(file);
-    });
-  }
-
   function mean(values) {
     if (!values.length) return 0;
     return values.reduce((acc, v) => acc + v, 0) / values.length;
@@ -305,7 +296,6 @@
     savePreferences,
     downloadBlob,
     readFileAsText,
-    readFileAsArrayBuffer,
     mean,
     median,
     percentile,

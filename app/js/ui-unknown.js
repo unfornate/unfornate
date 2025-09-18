@@ -48,6 +48,7 @@
     const category = document.getElementById('unknown-category').value.trim();
     const subcategory = document.getElementById('unknown-subcategory').value.trim();
     const type = document.getElementById('unknown-type').value;
+    const scope = document.getElementById('unknown-scope').value;
     const priority = parseInt(document.getElementById('unknown-priority').value, 10) || 1000;
     if (!title && type !== 'regex') {
       App.toast('Укажите нормализацию или выберите тип regex', { type: 'error' });
@@ -63,6 +64,7 @@
       normalize_to: title || samples[0].title || '',
       category,
       subcategory,
+      scope: scope ? scope.toLowerCase() : '',
       examples: samples.map(item => item.title || item.title_raw).slice(0, 5)
     };
     dictionaryAddRule(newRule);
