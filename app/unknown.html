@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Неопознанные операции</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html" class="active">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Создание правил из операций</div>
+      <div class="filters">
+        <input type="search" id="unknown-search" placeholder="Фильтр по описанию">
+        <input type="text" id="unknown-fragment" placeholder="Фрагмент для правила (опционально)">
+        <select id="unknown-type">
+          <option value="substring">substring</option>
+          <option value="exact">exact</option>
+          <option value="regex">regex</option>
+        </select>
+        <input type="text" id="unknown-normalize" placeholder="Normalize to">
+        <input type="text" id="unknown-category" placeholder="Категория">
+        <input type="text" id="unknown-subcategory" placeholder="Подкатегория">
+        <input type="number" id="unknown-priority" value="1200" step="10">
+        <button class="btn" id="unknown-create">Создать правило</button>
+        <div class="filters-note" id="unknown-preview"></div>
+      </div>
+      <div class="table-wrapper">
+        <table id="unknown-table">
+          <thead><tr><th></th><th>Дата</th><th>Описание</th><th>Банк</th><th class="right">Сумма</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/ui-unknown.js"></script>
+</body>
+</html>

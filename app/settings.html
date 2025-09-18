@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Настройки</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html" class="active">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Предпочтения</div>
+      <div class="preferences">
+        <label>Базовая валюта
+          <select id="pref-currency">
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </label>
+        <label>Тема
+          <select id="pref-theme">
+            <option value="light">Светлая</option>
+            <option value="dark">Тёмная</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">Данные</div>
+      <div class="actions">
+        <button class="btn secondary" id="btn-ledger-export">Экспорт операций (JSON)</button>
+        <button class="btn secondary" id="btn-ledger-import">Импорт операций (JSON)</button>
+        <button class="btn secondary" id="btn-import-csv">Импорт CSV</button>
+        <button class="btn secondary" id="btn-dict-export">Экспорт словаря</button>
+        <button class="btn secondary" id="btn-dict-import">Импорт словаря</button>
+        <button class="btn" id="btn-clear">Очистить всё</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/ui-settings.js"></script>
+</body>
+</html>

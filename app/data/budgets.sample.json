@@ -1,0 +1,10 @@
+{
+  "currency": "RUB",
+  "period": "2025-09",
+  "items": [
+    { "category": "Еда", "subcategory": "Еда: супермаркеты", "budget": 25000 },
+    { "category": "Связь", "subcategory": "Связь: мобильная связь", "budget": 1200 },
+    { "category": "Транспорт", "subcategory": "Транспорт: такси", "budget": 6000 },
+    { "pnl": "OPEX:Маркетинг", "budget": 30000 }
+  ]
+}

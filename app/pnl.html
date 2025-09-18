@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | P&amp;L</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html" class="active">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Период</div>
+      <div class="filters">
+        <label>С
+          <input type="month" id="pnl-from">
+        </label>
+        <label>По
+          <input type="month" id="pnl-to">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">P&amp;L по месяцам</div>
+      <div class="table-wrapper">
+        <table id="tbl-pnl">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="pnl-summary" class="muted"></div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/ui-pnl.js"></script>
+</body>
+</html>
