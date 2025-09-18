@@ -65,6 +65,24 @@
     return dict;
   }
 
+  function deleteRules(ids) {
+    if (!Array.isArray(ids) || !ids.length) return;
+    const dict = App.state.dictionary;
+    if (!dict) return;
+    dict.rules = dict.rules.filter(rule => !ids.includes(rule.id));
+    App.saveDictionary(dict);
+  }
+
+  function clearDictionary() {
+    const empty = {
+      version: `cleared_${new Date().toISOString()}`,
+      rules: [],
+      mcc_overrides: {}
+    };
+    App.saveDictionary(empty);
+    return empty;
+  }
+
   function exportDictionary(pretty = true) {
     const dict = App.state.dictionary;
     if (!dict) return '';
@@ -80,6 +98,8 @@
     importDictionary,
     exportDictionary,
     resetDictionary,
-    mergeDictionaries
+    mergeDictionaries,
+    deleteRules,
+    clearDictionary
   };
 })();

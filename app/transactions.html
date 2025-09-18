@@ -23,25 +23,24 @@
 
   <main class="content">
     <section class="card">
-      <div class="card-title">Импорт PDF</div>
+      <div class="card-title">Импорт CSV</div>
       <div class="upload">
-        <div id="drop-zone" class="drop-zone">
-          <input id="file-input" type="file" accept="application/pdf" multiple hidden>
+        <div id="csv-drop-zone" class="drop-zone">
+          <input id="csv-file-input" type="file" accept=".csv,text/csv" multiple hidden>
           <div>
-            <strong>Перетащите сюда PDF</strong> или <button class="btn secondary" type="button" id="btn-open-file">Выберите файл</button>
+            <strong>Перетащите сюда CSV</strong> или <button class="btn secondary" type="button" id="btn-open-csv">Выберите файлы</button>
           </div>
-          <p class="muted">Поддерживаются Т-Банк и Альфа-Банк. Файлы не покидают ваш компьютер.</p>
+          <p class="muted">Используйте выгрузку из Python-скриптов или любой CSV с колонками даты, описания и суммы. Файлы не покидают ваш компьютер.</p>
         </div>
         <div class="upload-options">
-          <label>Банк
-            <select id="bank-select">
-              <option value="">Автоопределение</option>
-              <option value="tbank">Т-Банк</option>
-              <option value="alfa">Альфа-Банк</option>
+          <label>Сегмент по умолчанию
+            <select id="csv-default-scope">
+              <option value="">Авто</option>
+              <option value="business">Бизнес</option>
+              <option value="personal">Личные</option>
             </select>
           </label>
-          <div id="bank-detection" class="badge">Банк не определён.</div>
-          <div class="progress-line"><span id="upload-progress-text"></span><div class="progress"><div class="progress-bar" id="upload-progress-bar"></div></div></div>
+          <div id="csv-import-status" class="badge">Файлы не импортированы.</div>
         </div>
       </div>
     </section>
@@ -52,6 +51,11 @@
         <input type="search" id="filter-text" placeholder="Поиск по описанию">
         <select id="filter-bank"></select>
         <select id="filter-category"></select>
+        <select id="filter-scope">
+          <option value="">Все сегменты</option>
+          <option value="business">Только бизнес</option>
+          <option value="personal">Только личные</option>
+        </select>
         <input type="date" id="filter-start">
         <input type="date" id="filter-end">
         <div class="filter-type">
@@ -74,6 +78,7 @@
             <tr>
               <th data-sort="date">Дата</th>
               <th>Описание</th>
+              <th data-sort="scope">Сегмент</th>
               <th data-sort="category">Категория</th>
               <th data-sort="subcategory">Подкатегория</th>
               <th data-sort="amount" class="right">Сумма</th>
@@ -86,14 +91,10 @@
     </section>
   </main>
 
-  <script src="assets/pdf.min.js"></script>
-  <script src="assets/pdf.worker.min.js"></script>
   <script src="assets/xlsx.full.min.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/bank-detect.js"></script>
-  <script src="js/pdf-reader.js"></script>
-  <script src="js/parse-tbank.js"></script>
-  <script src="js/parse-alfa.js"></script>
+  <script src="js/csv-reader.js"></script>
+  <script src="js/csv-importer.js"></script>
   <script src="js/normalize.js"></script>
   <script src="js/classify.js"></script>
   <script src="js/dict-store.js"></script>

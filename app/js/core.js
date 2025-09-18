@@ -257,6 +257,29 @@
     emitter.emit('dictionary:updated', dict);
   }
 
+  function reclassifyAll() {
+    if (!state.ledger || !state.ledger.length) return;
+    if (typeof Normalizer === 'undefined' || typeof Normalizer.normalizeOperation !== 'function') {
+      console.warn('App.reclassifyAll: Normalizer is not available');
+      return;
+    }
+    if (typeof Classifier === 'undefined' || typeof Classifier.classifyOperation !== 'function') {
+      console.warn('App.reclassifyAll: Classifier is not available');
+      return;
+    }
+    const updated = state.ledger.map(op => {
+      const normalized = Normalizer.normalizeOperation(op);
+      return Classifier.classifyOperation(normalized);
+    });
+    saveLedger(updated);
+    const unresolved = updated.filter(op => !op.category);
+    saveUnknown(unresolved);
+  }
+
+  function applyDictionaryToLedger() {
+    reclassifyAll();
+  }
+
   function saveBudgets(data) {
     state.budgets = data;
     persist(STORAGE_KEYS.budgets, data);
@@ -323,15 +346,6 @@
     });
   }
 
-  function readFileAsArrayBuffer(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(file);
-    });
-  }
-
   function mean(values) {
     if (!values.length) return 0;
     return values.reduce((acc, v) => acc + v, 0) / values.length;
@@ -381,10 +395,11 @@
     savePreferences,
     downloadBlob,
     readFileAsText,
-    readFileAsArrayBuffer,
     mean,
     median,
     percentile,
-    clone
+    clone,
+    reclassifyAll,
+    applyDictionaryToLedger
   };
 })();
