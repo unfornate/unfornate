@@ -5,38 +5,37 @@
     sort: { field: 'date', dir: 'desc' }
   };
 
+  function formatBankName(bank) {
+    if (!bank) return '—';
+    const lower = bank.toString().toLowerCase();
+    if (['tbank', 't-bank', 'тбанк'].includes(lower)) return 'Т-Банк';
+    if (['alfa', 'альфа', 'alfa-bank'].includes(lower)) return 'Альфа-Банк';
+    if (lower === 'csv') return 'CSV';
+    return bank;
+  }
+
   function unique(values) {
     return Array.from(new Set(values.filter(Boolean)));
   }
 
-  function updateDetectionInfo(info) {
-    const el = document.getElementById('bank-detection');
-    if (!el) return;
-    if (!info || !info.bank) {
-      el.textContent = 'Банк не определён.';
-      el.className = 'badge negative';
-      return;
-    }
-    const names = { tbank: 'Т-Банк', alfa: 'Альфа-Банк' };
-    el.textContent = `Определён банк: ${names[info.bank] || info.bank} (${info.reason})`;
-    el.className = 'badge positive';
+  function normalizeScopeInput(value) {
+    if (!value) return null;
+    const lower = value.toString().trim().toLowerCase();
+    if (['business', 'бизнес', 'biz', 'b'].includes(lower)) return 'business';
+    if (['personal', 'личные', 'личное', 'личн', 'pers', 'p'].includes(lower)) return 'personal';
+    return lower;
   }
 
-  function setProgress({ stage, page, total, ratio }) {
-    const bar = document.getElementById('upload-progress-bar');
-    const text = document.getElementById('upload-progress-text');
-    if (!bar || !text) return;
-    if (ratio == null) {
-      bar.style.width = '0%';
-      text.textContent = '';
-      return;
-    }
-    bar.style.width = `${Math.round(ratio * 100)}%`;
-    if (stage === 'page') {
-      text.textContent = `Страница ${page} из ${total}`;
-    } else {
-      text.textContent = 'Чтение файла…';
-    }
+  function getScopeValue(op) {
+    return normalizeScopeInput(op.scope);
+  }
+
+  function scopeLabel(scope) {
+    const normalized = normalizeScopeInput(scope);
+    if (!normalized) return '—';
+    if (normalized === 'business') return 'Бизнес';
+    if (normalized === 'personal') return 'Личные';
+    return normalized;
   }
 
   function formatAmount(amount) {
@@ -47,6 +46,7 @@
   function applyFilters() {
     const bankFilter = document.getElementById('filter-bank').value;
     const categoryFilter = document.getElementById('filter-category').value;
+    const scopeFilter = document.getElementById('filter-scope').value;
     const textFilter = document.getElementById('filter-text').value.toLowerCase();
     const startDate = document.getElementById('filter-start').value;
     const endDate = document.getElementById('filter-end').value;
@@ -55,6 +55,11 @@
     const filtered = state.operations.filter(op => {
       if (bankFilter && op.bank !== bankFilter) return false;
       if (categoryFilter && op.category !== categoryFilter) return false;
+      if (scopeFilter) {
+        const scope = getScopeValue(op) || null;
+        if (scopeFilter === 'business' && scope !== 'business') return false;
+        if (scopeFilter === 'personal' && scope === 'business') return false;
+      }
       if (textFilter && !(op.title || '').toLowerCase().includes(textFilter) && !(op.title_raw || '').toLowerCase().includes(textFilter)) {
         return false;
       }
@@ -78,6 +83,10 @@
       if (field === 'date') {
         valA = new Date(a.date || a.bookingDate);
         valB = new Date(b.date || b.bookingDate);
+      }
+      if (field === 'scope') {
+        valA = getScopeValue(a) || '';
+        valB = getScopeValue(b) || '';
       }
       if (typeof valA === 'string') valA = valA.toLowerCase();
       if (typeof valB === 'string') valB = valB.toLowerCase();
@@ -105,7 +114,7 @@
     if (!bankSelect || !categorySelect) return;
     const banks = unique(state.operations.map(op => op.bank));
     const categories = unique(state.operations.map(op => op.category));
-    bankSelect.innerHTML = '<option value="">Все банки</option>' + banks.map(bank => `<option value="${bank}">${bank === 'tbank' ? 'Т-Банк' : bank === 'alfa' ? 'Альфа-Банк' : bank}</option>`).join('');
+    bankSelect.innerHTML = '<option value="">Все источники</option>' + banks.map(bank => `<option value="${bank}">${formatBankName(bank)}</option>`).join('');
     categorySelect.innerHTML = '<option value="">Все категории</option>' + categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
   }
 
@@ -124,8 +133,9 @@
         <td>${App.formatDate(op.date || op.bookingDate)}</td>
         <td>
           <div class="title">${op.title || op.title_raw}</div>
-          <div class="muted">${op.bank === 'tbank' ? 'Т-Банк' : op.bank === 'alfa' ? 'Альфа-Банк' : op.bank}${op.mcc ? ` · MCC ${op.mcc}` : ''}</div>
+          <div class="muted">${formatBankName(op.bank)}${op.mcc ? ` · MCC ${op.mcc}` : ''}</div>
         </td>
+        <td class="editable" data-field="scope">${scopeLabel(getScopeValue(op))}</td>
         <td class="editable" data-field="category">${op.category || '—'}</td>
         <td class="editable" data-field="subcategory">${op.subcategory || '—'}</td>
         <td class="right amount ${op.amount < 0 ? 'neg' : 'pos'}">${formatAmount(op.amount)}</td>
@@ -136,8 +146,8 @@
     if (!state.filtered.length) {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
-      td.colSpan = 6;
-      td.textContent = 'Пока нет операций. Загрузите выписки в формате PDF.';
+      td.colSpan = 7;
+      td.textContent = 'Пока нет операций. Импортируйте CSV-файл.';
       tr.appendChild(td);
       tbody.appendChild(tr);
     }
@@ -174,14 +184,17 @@
           input.blur();
         }
         if (ev.key === 'Escape') {
-          cell.textContent = initial || '—';
+          input.value = initial;
+          input.blur();
         }
       });
       input.addEventListener('blur', () => {
         const value = input.value.trim();
         cell.removeChild(input);
-        cell.textContent = value || '—';
-        updateOperation(opId, { [field]: value || null });
+        const display = field === 'scope' ? scopeLabel(value.toLowerCase() || null) : (value || '—');
+        cell.textContent = display;
+        const normalizedScope = field === 'scope' ? normalizeScopeInput(value) : value;
+        updateOperation(opId, { [field]: normalizedScope || null });
       });
     });
   }
@@ -205,63 +218,65 @@
     renderTable();
   }
 
-  function parseByBank(bank, pages) {
-    if (bank === 'tbank') return ParserTBank.parse(pages);
-    if (bank === 'alfa') return ParserAlfa.parse(pages);
-    throw new Error('Неизвестный банк');
+  function setStatus(message, type = 'neutral') {
+    const badge = document.getElementById('csv-import-status');
+    if (!badge) return;
+    badge.textContent = message;
+    badge.className = `badge ${type}`.trim();
   }
 
-  async function processFile(file, bankHint) {
-    setProgress({ ratio: 0 });
-    const result = await PdfReader.process(file, {
-      bank: bankHint || null,
-      onProgress: setProgress
-    });
-    updateDetectionInfo(result.detection);
-    const bank = result.bank;
-    if (!bank) {
-      throw new Error('Банк не распознан. Выберите вручную.');
+  async function importCsvFile(file, defaultScope) {
+    const scope = defaultScope || null;
+    const rawOperations = await CsvImporter.importFile(file, { defaultScope: scope });
+    if (!rawOperations.length) {
+      App.toast(`Файл ${file.name} не содержит подходящих строк`, { type: 'warning' });
+      return 0;
     }
-    const parsed = parseByBank(bank, result.pageLines);
-    if (!parsed.length) {
-      throw new Error('Не удалось извлечь операции из PDF.');
-    }
-    const normalized = Normalizer.normalizeOperations(parsed).map(op => ({
+    const normalized = Normalizer.normalizeOperations(rawOperations).map(op => ({
       ...op,
       file_name: file.name,
       source_file: file.name,
       uploaded_at: new Date().toISOString(),
-      bank,
-      source_pdf: bank
+      bank: op.bank || 'csv'
     }));
     await DictionaryStore.ensureDictionary();
-    const classified = Classifier.classifyOperations(normalized);
+    const classified = Classifier.classifyOperations(normalized).map(op => ({
+      ...op,
+      scope: normalizeScopeInput(op.scope || scope)
+    }));
     const unknown = classified.filter(op => !op.category);
     if (unknown.length) {
       App.pushUnknown(unknown);
     }
     App.addOperations(classified);
-    App.toast(`Импортировано операций: ${classified.length}`, { type: 'success' });
-    setProgress({ ratio: null });
+    return classified.length;
   }
 
-  async function handleFiles(fileList) {
-    const bankValue = document.getElementById('bank-select').value;
+  async function handleCsvFiles(fileList) {
+    if (!fileList || !fileList.length) return;
+    const defaultScope = document.getElementById('csv-default-scope')?.value || '';
+    setStatus('Импортируем…', 'info');
+    let imported = 0;
     for (const file of fileList) {
       try {
-        await processFile(file, bankValue || null);
+        const count = await importCsvFile(file, defaultScope || null);
+        imported += count;
       } catch (err) {
         console.error(err);
-        App.toast(err.message, { type: 'error', timeout: 6000 });
-        setProgress({ ratio: null });
+        App.toast(err.message || `Ошибка импорта ${file.name}`, { type: 'error', timeout: 6000 });
       }
+    }
+    if (imported > 0) {
+      setStatus(`Импортировано операций: ${imported}`, 'positive');
+    } else {
+      setStatus('Файлы обработаны, новых операций нет', 'warning');
     }
   }
 
-  function initUpload() {
-    const fileInput = document.getElementById('file-input');
-    const dropZone = document.getElementById('drop-zone');
-    const openBtn = document.getElementById('btn-open-file');
+  function initCsvUpload() {
+    const fileInput = document.getElementById('csv-file-input');
+    const dropZone = document.getElementById('csv-drop-zone');
+    const openBtn = document.getElementById('btn-open-csv');
     if (!fileInput || !dropZone) return;
     if (openBtn) {
       openBtn.addEventListener('click', (event) => {
@@ -271,7 +286,7 @@
     }
     fileInput.addEventListener('change', () => {
       if (fileInput.files.length) {
-        handleFiles(fileInput.files);
+        handleCsvFiles(fileInput.files);
         fileInput.value = '';
       }
     });
@@ -290,13 +305,13 @@
     dropZone.addEventListener('drop', (event) => {
       const files = event.dataTransfer.files;
       if (files.length) {
-        handleFiles(files);
+        handleCsvFiles(files);
       }
     });
   }
 
   function bindFilters() {
-    ['filter-bank', 'filter-category', 'filter-text', 'filter-start', 'filter-end'].forEach(id => {
+    ['filter-bank', 'filter-category', 'filter-text', 'filter-start', 'filter-end', 'filter-scope'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', applyFilters);
     });
@@ -341,8 +356,9 @@
       await DictionaryStore.ensureDictionary();
     } catch (err) {
       console.warn('Dictionary load error', err);
+      App.toast('Не удалось загрузить словарь. Используются сохранённые данные.', { type: 'error' });
     }
-    initUpload();
+    initCsvUpload();
     attachTableEvents();
     bindFilters();
     initExport();

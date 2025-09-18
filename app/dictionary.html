@@ -35,17 +35,20 @@
           <button class="btn secondary" id="btn-rule-reset">Сброс</button>
           <button class="btn secondary" id="btn-rule-duplicates">Дубликаты</button>
           <button class="btn secondary" id="btn-rule-conflicts">Конфликты</button>
+          <button class="btn secondary" id="btn-rule-delete">Удалить выбранные</button>
+          <button class="btn secondary" id="btn-rule-clear">Очистить словарь</button>
         </div>
       </div>
       <div class="bulk-panel">
         <input type="text" id="bulk-category" placeholder="Категория">
         <input type="text" id="bulk-subcategory" placeholder="Подкатегория">
+        <input type="text" id="bulk-scope" placeholder="Сегмент (business/personal)">
         <button class="btn secondary" id="btn-rule-bulk">Применить к выделенным</button>
       </div>
       <div class="table-wrapper">
         <table id="dictionary-table">
           <thead>
-            <tr><th></th><th>Priority</th><th>Тип</th><th>Значение</th><th>Normalize to</th><th>Категория</th><th>Подкатегория</th><th>Примеры</th></tr>
+            <tr><th></th><th>Priority</th><th>Тип</th><th>Значение</th><th>Normalize to</th><th>Категория</th><th>Подкатегория</th><th>Сегмент</th><th>Примеры</th></tr>
           </thead>
           <tbody></tbody>
         </table>

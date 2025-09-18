@@ -25,6 +25,7 @@
         <td contenteditable="true" data-field="normalize_to">${rule.normalize_to || ''}</td>
         <td contenteditable="true" data-field="category">${rule.category || ''}</td>
         <td contenteditable="true" data-field="subcategory">${rule.subcategory || ''}</td>
+        <td contenteditable="true" data-field="scope">${rule.scope || ''}</td>
         <td contenteditable="true" data-field="examples">${(rule.examples || []).join(', ')}</td>
       `;
       tbody.appendChild(tr);
@@ -78,6 +79,8 @@
         }
       } else if (field === 'examples') {
         rule.examples = value ? value.split(',').map(v => v.trim()).filter(Boolean) : [];
+      } else if (field === 'scope') {
+        rule.scope = value ? value.toLowerCase() : '';
       } else {
         rule[field] = value;
       }
@@ -106,6 +109,7 @@
       normalize_to: '',
       category: '',
       subcategory: '',
+      scope: '',
       examples: []
     };
     dictionary.rules.unshift(newRule);
@@ -151,13 +155,44 @@
     }
     const category = document.getElementById('bulk-category').value;
     const subcategory = document.getElementById('bulk-subcategory').value;
+    const scope = document.getElementById('bulk-scope').value;
     dictionary.rules.forEach(rule => {
       if (!selected.has(rule.id)) return;
       if (category) rule.category = category;
       if (subcategory) rule.subcategory = subcategory;
+      if (scope) rule.scope = scope.toLowerCase();
     });
     renderTable(document.getElementById('dict-search').value);
     App.toast('Изменения применены. Не забудьте сохранить.', { type: 'info' });
+  }
+
+  function deleteSelectedRules() {
+    if (!selected.size) {
+      App.toast('Выберите правила для удаления', { type: 'error' });
+      return;
+    }
+    if (!confirm(`Удалить выбранные правила (${selected.size})?`)) return;
+    const ids = Array.from(selected);
+    DictionaryStore.deleteRules(ids);
+    if (typeof App.reclassifyAll === 'function') {
+      App.reclassifyAll();
+    }
+    dictionary = App.state.dictionary;
+    selected.clear();
+    renderTable(document.getElementById('dict-search').value);
+    App.toast('Правила удалены', { type: 'success' });
+  }
+
+  async function clearAllRules() {
+    if (!confirm('Очистить весь словарь? Это действие нельзя отменить.')) return;
+    DictionaryStore.clearDictionary();
+    if (typeof App.reclassifyAll === 'function') {
+      App.reclassifyAll();
+    }
+    dictionary = App.state.dictionary;
+    selected.clear();
+    renderTable();
+    App.toast('Словарь очищен', { type: 'success' });
   }
 
   function highlightDuplicates() {
@@ -210,5 +245,7 @@
     document.getElementById('btn-rule-duplicates').addEventListener('click', highlightDuplicates);
     document.getElementById('btn-rule-conflicts').addEventListener('click', checkConflicts);
     document.getElementById('btn-rule-bulk').addEventListener('click', applyBulk);
+    document.getElementById('btn-rule-delete').addEventListener('click', deleteSelectedRules);
+    document.getElementById('btn-rule-clear').addEventListener('click', clearAllRules);
   });
 })();

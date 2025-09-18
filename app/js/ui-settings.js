@@ -50,53 +50,53 @@
   }
 
   function clearAll() {
-    if (!confirm('Удалить все локальные данные?')) return;
-    localStorage.clear();
-    location.reload();
+    if (!confirm('Удалить все операции и отчёты? Словарь останется.')) return;
+    App.saveLedger([]);
+    App.saveUnknown([]);
+    App.saveBudgets(null);
+    App.savePnlMap(null);
+    localStorage.removeItem(App.STORAGE_KEYS.ledger);
+    localStorage.removeItem(App.STORAGE_KEYS.unknown);
+    localStorage.removeItem(App.STORAGE_KEYS.budgets);
+    localStorage.removeItem(App.STORAGE_KEYS.pnlMap);
+    App.toast('Данные очищены. Перезагрузка…', { type: 'success' });
+    setTimeout(() => location.reload(), 300);
   }
 
   function importCsv() {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.csv,text/csv';
+    input.multiple = true;
     input.addEventListener('change', async () => {
-      const file = input.files[0];
-      if (!file) return;
-      try {
-        const text = await App.readFileAsText(file);
-        const rows = text.trim().split(/\r?\n/);
-        const headers = rows.shift().split(';').map(h => h.replace(/"/g, '').trim().toLowerCase());
-        const ops = rows.map(row => {
-          const cols = row.split(';').map(c => c.replace(/^"|"$/g, '').trim());
-          const data = {};
-          headers.forEach((header, index) => {
-            data[header] = cols[index];
-          });
-          const amount = parseFloat((data['сумма'] || data['amount'] || '0').replace(',', '.')) || 0;
-          const date = data['дата'] || data['date'];
-          return {
-            id: App.uid('csv'),
-            date,
-            bookingDate: date,
-            bank: data['источник'] || data['банк'] || 'csv',
-            amount,
-            sign: amount >= 0 ? 1 : -1,
-            currency: data['валюта'] || App.state.preferences.currency || 'RUB',
-            title_raw: data['описание'] || data['title'] || '',
-            title: data['описание'] || data['title'] || '',
-            category: data['категория'] || data['category'] || null,
-            subcategory: data['подкатегория'] || data['subcategory'] || null,
-            comment: data['комментарий'] || data['comment'] || '',
-            source_pdf: 'csv'
-          };
-        });
-        const normalized = Classifier.classifyOperations(Normalizer.normalizeOperations(ops));
-        App.addOperations(normalized);
-        App.toast(`Импортировано CSV-операций: ${normalized.length}`, { type: 'success' });
-      } catch (err) {
-        console.error(err);
-        App.toast('Ошибка импорта CSV', { type: 'error' });
+      const files = Array.from(input.files || []);
+      if (!files.length) return;
+      let imported = 0;
+      for (const file of files) {
+        try {
+          const rawOps = await CsvImporter.importFile(file, {});
+          if (!rawOps.length) continue;
+          const normalized = Normalizer.normalizeOperations(rawOps).map(op => ({
+            ...op,
+            file_name: file.name,
+            source_file: file.name,
+            uploaded_at: new Date().toISOString(),
+            bank: op.bank || 'csv'
+          }));
+          await DictionaryStore.ensureDictionary();
+          const classified = Classifier.classifyOperations(normalized);
+          const unknown = classified.filter(op => !op.category);
+          if (unknown.length) App.pushUnknown(unknown);
+          App.addOperations(classified);
+          imported += classified.length;
+        } catch (err) {
+          console.error(err);
+          App.toast(`Ошибка импорта ${file.name}: ${err.message || err}`, { type: 'error' });
+        }
       }
+      App.toast(imported ? `Импортировано CSV-операций: ${imported}` : 'В выбранных CSV не найдено операций', {
+        type: imported ? 'success' : 'warning'
+      });
     });
     input.click();
   }
