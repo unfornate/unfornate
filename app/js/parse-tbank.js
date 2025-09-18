@@ -1,6 +1,7 @@
 (function () {
   const DATE_TIME_RE = /(\d{2}\.\d{2}\.\d{4})\s+(\d{2}:\d{2})/;
   const AMOUNT_RE = /([+-]?\d[\d\s]*,\d{2})\s*(₽|rub|rur)?/i;
+  const INVESTKOPILKA_RE = /инвесткопилка/i;
 
   function parseAmount(value) {
     if (!value) return 0;
@@ -14,22 +15,35 @@
     return time ? `${isoDate}T${time}:00` : `${isoDate}`;
   }
 
+  function containsInvestkopilka(value) {
+    return value ? INVESTKOPILKA_RE.test(value) : false;
+  }
+
   function parse(pages) {
     const operations = [];
     const raw = [];
     pages.forEach(lines => raw.push(...lines));
 
     let current = null;
+    function finalizeCurrent() {
+      if (!current) return;
+      current.description = current.descriptionParts.join(' ').replace(/\s+/g, ' ').trim();
+      const haystack = [current.description, current.title_raw].filter(Boolean).join(' ');
+      if (containsInvestkopilka(haystack)) {
+        current = null;
+        return;
+      }
+      operations.push(current);
+      current = null;
+    }
+
     raw.forEach(line => {
       if (/дата и время операции/i.test(line)) {
         return;
       }
       const dateMatch = line.match(DATE_TIME_RE);
       if (dateMatch) {
-        if (current) {
-          current.description = current.descriptionParts.join(' ').replace(/\s+/g, ' ').trim();
-          operations.push(current);
-        }
+        finalizeCurrent();
         const [, date, time] = dateMatch;
         const parts = line.replace(DATE_TIME_RE, '').trim();
         const bookingMatch = parts.match(/^(\d{2}\.\d{2}\.\d{4})\s+(.*)$/);
@@ -74,10 +88,7 @@
       }
     });
 
-    if (current) {
-      current.description = current.descriptionParts.join(' ').replace(/\s+/g, ' ').trim();
-      operations.push(current);
-    }
+    finalizeCurrent();
 
     const normalized = operations
       .filter(op => op.amount !== 0)
