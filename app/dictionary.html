@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Словарь</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html" class="active">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Правила классификации</div>
+      <div class="dictionary-toolbar">
+        <input type="search" id="dict-search" placeholder="Поиск по словарю">
+        <div class="actions">
+          <button class="btn" id="btn-rule-add">Добавить правило</button>
+          <button class="btn" id="btn-rule-save">Сохранить</button>
+          <button class="btn secondary" id="btn-rule-export">Экспорт</button>
+          <button class="btn secondary" id="btn-rule-import">Импорт (merge)</button>
+          <button class="btn secondary" id="btn-rule-replace">Импорт (replace)</button>
+          <button class="btn secondary" id="btn-rule-reset">Сброс</button>
+          <button class="btn secondary" id="btn-rule-duplicates">Дубликаты</button>
+          <button class="btn secondary" id="btn-rule-conflicts">Конфликты</button>
+          <button class="btn secondary" id="btn-rule-delete">Удалить выбранные</button>
+          <button class="btn secondary" id="btn-rule-clear">Очистить словарь</button>
+        </div>
+      </div>
+      <div class="bulk-panel">
+        <input type="text" id="bulk-category" placeholder="Категория">
+        <input type="text" id="bulk-subcategory" placeholder="Подкатегория">
+        <input type="text" id="bulk-scope" placeholder="Сегмент (business/personal)">
+        <button class="btn secondary" id="btn-rule-bulk">Применить к выделенным</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="dictionary-table">
+          <thead>
+            <tr><th></th><th>Priority</th><th>Тип</th><th>Значение</th><th>Normalize to</th><th>Категория</th><th>Подкатегория</th><th>Сегмент</th><th>Примеры</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/normalize.js"></script>
+  <script src="js/classify.js"></script>
+  <script src="js/dict-store.js"></script>
+  <script src="js/ui-dictionary.js"></script>
+</body>
+</html>

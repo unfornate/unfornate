@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Бюджеты</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html">Кэшфлоу</a>
+      <a href="budgets.html" class="active">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Бюджеты по категориям</div>
+      <div class="table-wrapper">
+        <table id="budgets-table">
+          <thead>
+            <tr><th>Категория</th><th>Подкатегория</th><th>P&amp;L линия</th><th>Бюджет</th><th class="right">Факт</th><th>Прогресс</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" id="btn-budget-add">Добавить строку</button>
+        <button class="btn" id="btn-budget-save">Сохранить</button>
+      </div>
+      <div id="budgets-summary" class="muted"></div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/ui-budgets.js"></script>
+</body>
+</html>

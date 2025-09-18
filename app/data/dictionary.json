@@ -1,0 +1,1568 @@
+{
+  "version": "auto_extracted_2025-09-16T21:58:10",
+  "rules": [
+    {
+      "priority": 3000,
+      "match": {
+        "type": "exact",
+        "value": "яндекс.такси"
+      },
+      "normalize_to": "яндекс.такси",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: такси",
+      "examples": [
+        "яндекс.такси"
+      ],
+      "id": "r_adb73b35"
+    },
+    {
+      "priority": 2999,
+      "match": {
+        "type": "exact",
+        "value": "самокаты яндекс.go"
+      },
+      "normalize_to": "самокаты яндекс.go",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: самокаты",
+      "examples": [
+        "самокаты яндекс.go"
+      ],
+      "id": "r_699ac605"
+    },
+    {
+      "priority": 2998,
+      "match": {
+        "type": "exact",
+        "value": "whoosh"
+      },
+      "normalize_to": "whoosh",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: самокаты",
+      "examples": [
+        "whoosh"
+      ],
+      "id": "r_1fb4a526"
+    },
+    {
+      "priority": 2997,
+      "match": {
+        "type": "exact",
+        "value": "юрент"
+      },
+      "normalize_to": "юрент",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: самокаты",
+      "examples": [
+        "юрент"
+      ],
+      "id": "r_9635f293"
+    },
+    {
+      "priority": 2996,
+      "match": {
+        "type": "exact",
+        "value": "московский транспорт"
+      },
+      "normalize_to": "московский транспорт",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: общественный",
+      "examples": [
+        "московский транспорт"
+      ],
+      "id": "r_b95e6cd0"
+    },
+    {
+      "priority": 2995,
+      "match": {
+        "type": "exact",
+        "value": "ржд"
+      },
+      "normalize_to": "ржд",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: ж/д билеты",
+      "examples": [
+        "ржд"
+      ],
+      "id": "r_f5679d23"
+    },
+    {
+      "priority": 2994,
+      "match": {
+        "type": "exact",
+        "value": "вкусвилл"
+      },
+      "normalize_to": "вкусвилл",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "вкусвилл"
+      ],
+      "id": "r_b01eb016"
+    },
+    {
+      "priority": 2993,
+      "match": {
+        "type": "exact",
+        "value": "глобус.одинцово"
+      },
+      "normalize_to": "глобус.одинцово",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "глобус.одинцово"
+      ],
+      "id": "r_d8b5d2a4"
+    },
+    {
+      "priority": 2992,
+      "match": {
+        "type": "exact",
+        "value": "магнит"
+      },
+      "normalize_to": "магнит",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "магнит"
+      ],
+      "id": "r_0a2a6aec"
+    },
+    {
+      "priority": 2991,
+      "match": {
+        "type": "exact",
+        "value": "додо пицца"
+      },
+      "normalize_to": "додо пицца",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "додо пицца"
+      ],
+      "id": "r_9ed972c4"
+    },
+    {
+      "priority": 2990,
+      "match": {
+        "type": "exact",
+        "value": "бот буквица"
+      },
+      "normalize_to": "бот буквица",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "бот буквица"
+      ],
+      "id": "r_f7e02e84"
+    },
+    {
+      "priority": 2989,
+      "match": {
+        "type": "exact",
+        "value": "salebot"
+      },
+      "normalize_to": "salebot",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "salebot"
+      ],
+      "id": "r_19d8107b"
+    },
+    {
+      "priority": 2988,
+      "match": {
+        "type": "exact",
+        "value": "услуги salebot разработка"
+      },
+      "normalize_to": "услуги salebot разработка",
+      "category": "Прочее",
+      "subcategory": "Прочее: услуги",
+      "examples": [
+        "услуги salebot разработка"
+      ],
+      "id": "r_2391ae1d"
+    },
+    {
+      "priority": 2987,
+      "match": {
+        "type": "exact",
+        "value": "telegram premium"
+      },
+      "normalize_to": "telegram premium",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "telegram premium"
+      ],
+      "id": "r_29edc77c"
+    },
+    {
+      "priority": 2986,
+      "match": {
+        "type": "exact",
+        "value": "яндекс плюс"
+      },
+      "normalize_to": "яндекс плюс",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "яндекс плюс"
+      ],
+      "id": "r_7c304702"
+    },
+    {
+      "priority": 2985,
+      "match": {
+        "type": "exact",
+        "value": "подписка pro"
+      },
+      "normalize_to": "подписка pro",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "подписка pro"
+      ],
+      "id": "r_cd8e158d"
+    },
+    {
+      "priority": 2984,
+      "match": {
+        "type": "exact",
+        "value": "vpntype"
+      },
+      "normalize_to": "vpntype",
+      "category": "Прочее",
+      "subcategory": "Прочее: подписки",
+      "examples": [
+        "vpntype"
+      ],
+      "id": "r_cd7b11d5"
+    },
+    {
+      "priority": 2983,
+      "match": {
+        "type": "exact",
+        "value": "т-мобайл"
+      },
+      "normalize_to": "т-мобайл",
+      "category": "Связь",
+      "subcategory": "Связь: мобильная связь",
+      "examples": [
+        "т-мобайл"
+      ],
+      "id": "r_6b011e7f"
+    },
+    {
+      "priority": 2982,
+      "match": {
+        "type": "exact",
+        "value": "продамус"
+      },
+      "normalize_to": "продамус",
+      "category": "Прочее",
+      "subcategory": "Прочее: финансы",
+      "examples": [
+        "продамус"
+      ],
+      "id": "r_fbe6132d"
+    },
+    {
+      "priority": 2981,
+      "match": {
+        "type": "exact",
+        "value": "onlipay"
+      },
+      "normalize_to": "onlipay",
+      "category": "Покупки",
+      "subcategory": "Покупки: маркетплейсы/магазины",
+      "examples": [
+        "onlipay"
+      ],
+      "id": "r_edd67959"
+    },
+    {
+      "priority": 2980,
+      "match": {
+        "type": "exact",
+        "value": "white future"
+      },
+      "normalize_to": "white future",
+      "category": "Покупки",
+      "subcategory": "Покупки: маркетплейсы/магазины",
+      "examples": [
+        "white future"
+      ],
+      "id": "r_2fab092b"
+    },
+    {
+      "priority": 2979,
+      "match": {
+        "type": "exact",
+        "value": "зп надежда"
+      },
+      "normalize_to": "зп надежда",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "зп надежда"
+      ],
+      "id": "r_35d9aa0d"
+    },
+    {
+      "priority": 2978,
+      "match": {
+        "type": "exact",
+        "value": "павел ч."
+      },
+      "normalize_to": "павел ч.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "павел ч."
+      ],
+      "id": "r_ec57aade"
+    },
+    {
+      "priority": 2977,
+      "match": {
+        "type": "exact",
+        "value": "зинаида с."
+      },
+      "normalize_to": "зинаида с.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "зинаида с."
+      ],
+      "id": "r_b5f6c75d"
+    },
+    {
+      "priority": 2976,
+      "match": {
+        "type": "exact",
+        "value": "кристина к."
+      },
+      "normalize_to": "кристина к.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "кристина к."
+      ],
+      "id": "r_75061845"
+    },
+    {
+      "priority": 2975,
+      "match": {
+        "type": "exact",
+        "value": "зп кристина д."
+      },
+      "normalize_to": "зп кристина д.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "зп кристина д."
+      ],
+      "id": "r_5449ad68"
+    },
+    {
+      "priority": 2974,
+      "match": {
+        "type": "exact",
+        "value": "мария к."
+      },
+      "normalize_to": "мария к.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "мария к."
+      ],
+      "id": "r_61f0d8e7"
+    },
+    {
+      "priority": 2973,
+      "match": {
+        "type": "exact",
+        "value": "андрей с."
+      },
+      "normalize_to": "андрей с.",
+      "category": "Прочее",
+      "subcategory": "Прочее: перевод",
+      "examples": [
+        "андрей с."
+      ],
+      "id": "r_7877808e"
+    },
+    {
+      "priority": 2972,
+      "match": {
+        "type": "exact",
+        "value": "алина к."
+      },
+      "normalize_to": "алина к.",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "алина к."
+      ],
+      "id": "r_51b70d1b"
+    },
+    {
+      "priority": 2971,
+      "match": {
+        "type": "exact",
+        "value": "серафим жилье"
+      },
+      "normalize_to": "серафим жилье",
+      "category": "Жилье",
+      "subcategory": "Жилье: прочее",
+      "examples": [
+        "серафим жилье"
+      ],
+      "id": "r_964d59c6"
+    },
+    {
+      "priority": 2970,
+      "match": {
+        "type": "exact",
+        "value": "цветы (отношения)"
+      },
+      "normalize_to": "цветы (отношения)",
+      "category": "Прочее",
+      "subcategory": "Прочее: отношения/цветы",
+      "examples": [
+        "цветы (отношения)"
+      ],
+      "id": "r_1cb33700"
+    },
+    {
+      "priority": 2969,
+      "match": {
+        "type": "exact",
+        "value": "ремонт iphone ион п."
+      },
+      "normalize_to": "ремонт iphone ион п.",
+      "category": "Прочее",
+      "subcategory": "Прочее: ремонт/услуги",
+      "examples": [
+        "ремонт iphone ион п."
+      ],
+      "id": "r_624a95b9"
+    },
+    {
+      "priority": 2968,
+      "match": {
+        "type": "exact",
+        "value": "психолог"
+      },
+      "normalize_to": "психолог",
+      "category": "Здоровье",
+      "subcategory": "Здоровье: психолог",
+      "examples": [
+        "психолог"
+      ],
+      "id": "r_8d337e7a"
+    },
+    {
+      "priority": 2967,
+      "match": {
+        "type": "exact",
+        "value": "налог"
+      },
+      "normalize_to": "налог",
+      "category": "Прочее",
+      "subcategory": "Прочее: налоги",
+      "examples": [
+        "налог"
+      ],
+      "id": "r_c3faf94e"
+    },
+    {
+      "priority": 2965,
+      "match": {
+        "type": "exact",
+        "value": "стрелка"
+      },
+      "normalize_to": "стрелка",
+      "category": "Транспорт",
+      "subcategory": "Транспорт: общественный",
+      "examples": [
+        "стрелка"
+      ],
+      "id": "r_fb644854"
+    },
+    {
+      "priority": 2963,
+      "match": {
+        "type": "exact",
+        "value": "перекрёсток"
+      },
+      "normalize_to": "перекрёсток",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "перекрёсток"
+      ],
+      "id": "r_e9fcc6d3"
+    },
+    {
+      "priority": 2962,
+      "match": {
+        "type": "exact",
+        "value": "пятёрочка"
+      },
+      "normalize_to": "пятёрочка",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "пятёрочка"
+      ],
+      "id": "r_8dadfd6e"
+    },
+    {
+      "priority": 2961,
+      "match": {
+        "type": "exact",
+        "value": "верный"
+      },
+      "normalize_to": "верный",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "верный"
+      ],
+      "id": "r_8d4bfeb8"
+    },
+    {
+      "priority": 2960,
+      "match": {
+        "type": "exact",
+        "value": "вкусвилл"
+      },
+      "normalize_to": "вкусвилл",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "вкусвилл"
+      ],
+      "id": "r_0e2b4cf4"
+    },
+    {
+      "priority": 2958,
+      "match": {
+        "type": "exact",
+        "value": "лента"
+      },
+      "normalize_to": "лента",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "лента"
+      ],
+      "id": "r_5bf955eb"
+    },
+    {
+      "priority": 2957,
+      "match": {
+        "type": "exact",
+        "value": "магнолия"
+      },
+      "normalize_to": "магнолия",
+      "category": "Еда",
+      "subcategory": "Еда: супермаркеты",
+      "examples": [
+        "магнолия"
+      ],
+      "id": "r_5d407a1e"
+    },
+    {
+      "priority": 2955,
+      "match": {
+        "type": "exact",
+        "value": "one price coffee"
+      },
+      "normalize_to": "one price coffee",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "one price coffee"
+      ],
+      "id": "r_be5473ee"
+    },
+    {
+      "priority": 2954,
+      "match": {
+        "type": "exact",
+        "value": "mug coffee"
+      },
+      "normalize_to": "mug coffee",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "mug coffee"
+      ],
+      "id": "r_948d1eef"
+    },
+    {
+      "priority": 2953,
+      "match": {
+        "type": "exact",
+        "value": "cofix"
+      },
+      "normalize_to": "cofix",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "cofix"
+      ],
+      "id": "r_f258b747"
+    },
+    {
+      "priority": 2952,
+      "match": {
+        "type": "exact",
+        "value": "starbucks"
+      },
+      "normalize_to": "starbucks",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "starbucks"
+      ],
+      "id": "r_14dda46c"
+    },
+    {
+      "priority": 2951,
+      "match": {
+        "type": "exact",
+        "value": "surf coffee"
+      },
+      "normalize_to": "surf coffee",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "surf coffee"
+      ],
+      "id": "r_024008c7"
+    },
+    {
+      "priority": 2950,
+      "match": {
+        "type": "exact",
+        "value": "фастфуд"
+      },
+      "normalize_to": "фастфуд",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "фастфуд"
+      ],
+      "id": "r_962da96e"
+    },
+    {
+      "priority": 2949,
+      "match": {
+        "type": "exact",
+        "value": "милти"
+      },
+      "normalize_to": "милти",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "милти"
+      ],
+      "id": "r_f26b76d1"
+    },
+    {
+      "priority": 2948,
+      "match": {
+        "type": "exact",
+        "value": "ежа"
+      },
+      "normalize_to": "ежа",
+      "category": "Еда",
+      "subcategory": "Еда: вне дома",
+      "examples": [
+        "ежа"
+      ],
+      "id": "r_1dde0544"
+    },
+    {
+      "priority": 2947,
+      "match": {
+        "type": "exact",
+        "value": "дринкит"
+      },
+      "normalize_to": "дринкит",
+      "category": "Отношения",
+      "subcategory": "Отношения: еда и напитки",
+      "examples": [
+        "дринкит"
+      ],
+      "id": "r_0452e612"
+    },
+    {
+      "priority": 2946,
+      "match": {
+        "type": "exact",
+        "value": "брусника"
+      },
+      "normalize_to": "брусника",
+      "category": "Отношения",
+      "subcategory": "Отношения: еда и напитки",
+      "examples": [
+        "брусника"
+      ],
+      "id": "r_173c5191"
+    },
+    {
+      "priority": 2945,
+      "match": {
+        "type": "exact",
+        "value": "еда и напитки"
+      },
+      "normalize_to": "еда и напитки",
+      "category": "Отношения",
+      "subcategory": "Отношения: еда и напитки",
+      "examples": [
+        "еда и напитки"
+      ],
+      "id": "r_d1d5a030"
+    },
+    {
+      "priority": 2943,
+      "match": {
+        "type": "exact",
+        "value": "sp_dikorosy"
+      },
+      "normalize_to": "sp_dikorosy",
+      "category": "Покупки",
+      "subcategory": "Покупки: маркетплейсы/магазины",
+      "examples": [
+        "sp_dikorosy"
+      ],
+      "id": "r_c2f536a4"
+    },
+    {
+      "priority": 2942,
+      "match": {
+        "type": "exact",
+        "value": "копирка"
+      },
+      "normalize_to": "копирка",
+      "category": "Прочее",
+      "subcategory": "Прочее: печать/копии",
+      "examples": [
+        "копирка"
+      ],
+      "id": "r_2071b824"
+    },
+    {
+      "priority": 2941,
+      "match": {
+        "type": "exact",
+        "value": "почта россии"
+      },
+      "normalize_to": "почта россии",
+      "category": "Прочее",
+      "subcategory": "Прочее: почта",
+      "examples": [
+        "почта россии"
+      ],
+      "id": "r_3134dc3b"
+    },
+    {
+      "priority": 2940,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79111551549"
+      },
+      "normalize_to": "Павел Ч.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_98e7a080"
+    },
+    {
+      "priority": 2939,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79029447453"
+      },
+      "normalize_to": "Зинаида С.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_ae78a225"
+    },
+    {
+      "priority": 2938,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79814066555"
+      },
+      "normalize_to": "Кристина К.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_f7c56757"
+    },
+    {
+      "priority": 2937,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79841179827"
+      },
+      "normalize_to": "Андрей С.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_e5b25819"
+    },
+    {
+      "priority": 2936,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79676676872"
+      },
+      "normalize_to": "ЗП Кристина Д.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_997f122a"
+    },
+    {
+      "priority": 2935,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79637633330"
+      },
+      "normalize_to": "Ремонт iPhone Ион П.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_12758e54"
+    },
+    {
+      "priority": 2934,
+      "match": {
+        "type": "regex",
+        "pattern": "\\+79265372260"
+      },
+      "normalize_to": "Цветы (отношения)",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_3a4890d9"
+    },
+    {
+      "priority": 2933,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5289891904"
+      },
+      "normalize_to": "Мария К.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_69eef84a"
+    },
+    {
+      "priority": 2932,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5789426284"
+      },
+      "normalize_to": "ЗП Кристина Д.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_696a6b75"
+    },
+    {
+      "priority": 2931,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5685369707"
+      },
+      "normalize_to": "Услуги Salebot Разработка",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_a6035258"
+    },
+    {
+      "priority": 2930,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5479852310"
+      },
+      "normalize_to": "Илья Я.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_902413f2"
+    },
+    {
+      "priority": 2929,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5371587725"
+      },
+      "normalize_to": "Серафим Жилье",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_2f85b519"
+    },
+    {
+      "priority": 2928,
+      "match": {
+        "type": "regex",
+        "pattern": "Внутренний перевод на договор\\s*5369348072"
+      },
+      "normalize_to": "Алина К.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_1b95349f"
+    },
+    {
+      "priority": 2927,
+      "match": {
+        "type": "regex",
+        "pattern": "Внешний перевод по номеру телефона.*Мария\\s*К\\.?"
+      },
+      "normalize_to": "Кристина К.",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_263ca196"
+    },
+    {
+      "priority": 2926,
+      "match": {
+        "type": "regex",
+        "pattern": "VKUSVILL"
+      },
+      "normalize_to": "Вкусвилл",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_a0809fec"
+    },
+    {
+      "priority": 2925,
+      "match": {
+        "type": "regex",
+        "pattern": "Кофейня\\s*Дринкит.*"
+      },
+      "normalize_to": "Дринкит",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_25df9c54"
+    },
+    {
+      "priority": 2924,
+      "match": {
+        "type": "regex",
+        "pattern": "\\bdrinkit\\b"
+      },
+      "normalize_to": "Дринкит",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_382edb47"
+    },
+    {
+      "priority": 2923,
+      "match": {
+        "type": "regex",
+        "pattern": "YM\\*bukvitsaai\\s+Novosibirsk"
+      },
+      "normalize_to": "Бот Буквица",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_54b2b59b"
+    },
+    {
+      "priority": 2922,
+      "match": {
+        "type": "regex",
+        "pattern": "SMART\\s+GLOCAL.*"
+      },
+      "normalize_to": "Telegram Premium",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_1e7434f4"
+    },
+    {
+      "priority": 2921,
+      "match": {
+        "type": "regex",
+        "pattern": "https?://vpntype\\.tech.*"
+      },
+      "normalize_to": "VPNType",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_d6fb67f1"
+    },
+    {
+      "priority": 2920,
+      "match": {
+        "type": "regex",
+        "pattern": "\\bT-?\\s*Mobile\\.?\\s*T-?\\s*Bank.*"
+      },
+      "normalize_to": "Т-Мобайл",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_2c854e50"
+    },
+    {
+      "priority": 2919,
+      "match": {
+        "type": "regex",
+        "pattern": "Оплата услуг mBank\\.?T-?\\s*Mobile"
+      },
+      "normalize_to": "Т-Мобайл",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_29c4b05c"
+    },
+    {
+      "priority": 2918,
+      "match": {
+        "type": "regex",
+        "pattern": "Оплата услуг T-?Bank\\.?T-?\\s*Bundle"
+      },
+      "normalize_to": "Подписка Pro",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_be7a8679"
+    },
+    {
+      "priority": 2917,
+      "match": {
+        "type": "regex",
+        "pattern": "YANDEX\\*4121\\*TAXI"
+      },
+      "normalize_to": "Яндекс.Такси",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_ebf8e565"
+    },
+    {
+      "priority": 2916,
+      "match": {
+        "type": "regex",
+        "pattern": "YANDEX\\*\\d+\\*SCOOTERS"
+      },
+      "normalize_to": "Самокаты Яндекс.Go",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_0c4e14b0"
+    },
+    {
+      "priority": 2915,
+      "match": {
+        "type": "regex",
+        "pattern": "Whoosh\\.bike"
+      },
+      "normalize_to": "Whoosh",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_c4070a3d"
+    },
+    {
+      "priority": 2914,
+      "match": {
+        "type": "regex",
+        "pattern": "\\burent\\b"
+      },
+      "normalize_to": "Юрент",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_975483bb"
+    },
+    {
+      "priority": 2913,
+      "match": {
+        "type": "regex",
+        "pattern": "GLOBUS\\s+ODINCOVO.*"
+      },
+      "normalize_to": "Глобус.Одинцово",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_70fbaf3a"
+    },
+    {
+      "priority": 2912,
+      "match": {
+        "type": "regex",
+        "pattern": "\\bProdamus\\b"
+      },
+      "normalize_to": "Продамус",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_9ee72c81"
+    },
+    {
+      "priority": 2911,
+      "match": {
+        "type": "regex",
+        "pattern": "Продамус\\.online.*"
+      },
+      "normalize_to": "Продамус",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_4ec06d0f"
+    },
+    {
+      "priority": 2910,
+      "match": {
+        "type": "regex",
+        "pattern": "Продамус\\s+g\\s+YoshkarOla"
+      },
+      "normalize_to": "Продамус",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8a370a04"
+    },
+    {
+      "priority": 2909,
+      "match": {
+        "type": "regex",
+        "pattern": "salebot\\.pro.*"
+      },
+      "normalize_to": "Salebot",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_f4f5336e"
+    },
+    {
+      "priority": 2908,
+      "match": {
+        "type": "regex",
+        "pattern": "Russian\\s*Railways"
+      },
+      "normalize_to": "РЖД",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_f0fce7e7"
+    },
+    {
+      "priority": 2907,
+      "match": {
+        "type": "regex",
+        "pattern": "White\\s*Future[_\\s]*P[_\\s]*QR.*"
+      },
+      "normalize_to": "White Future",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8d2a6113"
+    },
+    {
+      "priority": 2906,
+      "match": {
+        "type": "regex",
+        "pattern": "(?:Оплата\\s+в\\s+)?OnliPay\\s*$"
+      },
+      "normalize_to": "OnliPay",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_c5376155"
+    },
+    {
+      "priority": 2905,
+      "match": {
+        "type": "regex",
+        "pattern": "YANDEX\\*\\d+\\*PLUS"
+      },
+      "normalize_to": "Яндекс Плюс",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_c0f70067"
+    },
+    {
+      "priority": 2904,
+      "match": {
+        "type": "regex",
+        "pattern": "YANDEX\\s*PLUS"
+      },
+      "normalize_to": "Яндекс Плюс",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_11fdd6d4"
+    },
+    {
+      "priority": 2903,
+      "match": {
+        "type": "regex",
+        "pattern": "УФК.*"
+      },
+      "normalize_to": "Налог",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_3064bf46"
+    },
+    {
+      "priority": 2902,
+      "match": {
+        "type": "regex",
+        "pattern": "ОТДЕЛЕНИЕ.*БАНКА\\s+РОССИИ.*"
+      },
+      "normalize_to": "Налог",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_f989f2d9"
+    },
+    {
+      "priority": 2901,
+      "match": {
+        "type": "regex",
+        "pattern": "Налог.?ск.*област"
+      },
+      "normalize_to": "Налог",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_6f6d5909"
+    },
+    {
+      "priority": 2900,
+      "match": {
+        "type": "regex",
+        "pattern": "PEREKRESTOK"
+      },
+      "normalize_to": "Перекрёсток",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_e94ed162"
+    },
+    {
+      "priority": 2899,
+      "match": {
+        "type": "regex",
+        "pattern": "PYATEROCHKA"
+      },
+      "normalize_to": "Пятёрочка",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_45e1f287"
+    },
+    {
+      "priority": 2898,
+      "match": {
+        "type": "regex",
+        "pattern": "VERNYJ"
+      },
+      "normalize_to": "Верный",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_9a209667"
+    },
+    {
+      "priority": 2897,
+      "match": {
+        "type": "regex",
+        "pattern": "\\bLENTA\\b"
+      },
+      "normalize_to": "Лента",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_082ad66d"
+    },
+    {
+      "priority": 2896,
+      "match": {
+        "type": "regex",
+        "pattern": "Magnolia|MAGNOLIYA"
+      },
+      "normalize_to": "Магнолия",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_4dc91f5d"
+    },
+    {
+      "priority": 2895,
+      "match": {
+        "type": "regex",
+        "pattern": "VKUSVILL|ВкусВилл"
+      },
+      "normalize_to": "Вкусвилл",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_6ca1c697"
+    },
+    {
+      "priority": 2894,
+      "match": {
+        "type": "regex",
+        "pattern": "MAGNIT"
+      },
+      "normalize_to": "Магнит",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_6bc5b61b"
+    },
+    {
+      "priority": 2893,
+      "match": {
+        "type": "regex",
+        "pattern": "MEALTY"
+      },
+      "normalize_to": "Милти",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_15924520"
+    },
+    {
+      "priority": 2892,
+      "match": {
+        "type": "regex",
+        "pattern": "SP\\s*DIKOROSY"
+      },
+      "normalize_to": "SP_DIKOROSY",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_f1ded213"
+    },
+    {
+      "priority": 2891,
+      "match": {
+        "type": "regex",
+        "pattern": "DODO\\s*PIZZA"
+      },
+      "normalize_to": "Додо Пицца",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8c856510"
+    },
+    {
+      "priority": 2890,
+      "match": {
+        "type": "regex",
+        "pattern": "ONE\\s*PRICE\\s*COFFEE"
+      },
+      "normalize_to": "One Price Coffee",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_1d9fc217"
+    },
+    {
+      "priority": 2889,
+      "match": {
+        "type": "regex",
+        "pattern": "COFIX"
+      },
+      "normalize_to": "Cofix",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_0a09d415"
+    },
+    {
+      "priority": 2888,
+      "match": {
+        "type": "regex",
+        "pattern": "STARBUCKS"
+      },
+      "normalize_to": "Starbucks",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_4d5a7fc4"
+    },
+    {
+      "priority": 2887,
+      "match": {
+        "type": "regex",
+        "pattern": "SURF\\s*COFFEE"
+      },
+      "normalize_to": "Surf Coffee",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_cbc46e5b"
+    },
+    {
+      "priority": 2886,
+      "match": {
+        "type": "regex",
+        "pattern": "EVO\\s*MUGCOFFEE\\w*"
+      },
+      "normalize_to": "MUG Coffee",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_fd557a7a"
+    },
+    {
+      "priority": 2885,
+      "match": {
+        "type": "regex",
+        "pattern": "MUGCOFFEE\\w*"
+      },
+      "normalize_to": "MUG Coffee",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_95b13f3f"
+    },
+    {
+      "priority": 2884,
+      "match": {
+        "type": "regex",
+        "pattern": "QSR\\s*\\d+"
+      },
+      "normalize_to": "Фастфуд",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_4c45939c"
+    },
+    {
+      "priority": 2883,
+      "match": {
+        "type": "regex",
+        "pattern": "Mos\\s*Transport|Mos\\s*Transport|Metro"
+      },
+      "normalize_to": "Московский транспорт",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8da67317"
+    },
+    {
+      "priority": 2882,
+      "match": {
+        "type": "regex",
+        "pattern": "STRELKACARD\\d*"
+      },
+      "normalize_to": "Стрелка",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_6a4c5e3c"
+    },
+    {
+      "priority": 2881,
+      "match": {
+        "type": "regex",
+        "pattern": "RZD|Russian\\s*Railways|РЖД"
+      },
+      "normalize_to": "РЖД",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8adc24bc"
+    },
+    {
+      "priority": 2880,
+      "match": {
+        "type": "regex",
+        "pattern": "DRINKIT|KOFEJNJA\\s*DRINKIT|Кофейня\\s*Дринкит"
+      },
+      "normalize_to": "Дринкит",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_5fb51b3a"
+    },
+    {
+      "priority": 2879,
+      "match": {
+        "type": "regex",
+        "pattern": "BRUSNIKA"
+      },
+      "normalize_to": "Брусника",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_ae2b3b91"
+    },
+    {
+      "priority": 2878,
+      "match": {
+        "type": "regex",
+        "pattern": "EDA\\s+NAPITKI"
+      },
+      "normalize_to": "Еда и напитки",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_0d929d87"
+    },
+    {
+      "priority": 2877,
+      "match": {
+        "type": "regex",
+        "pattern": "KOPIRKA|KOPIRKA"
+      },
+      "normalize_to": "Копирка",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_6bb41c0d"
+    },
+    {
+      "priority": 2876,
+      "match": {
+        "type": "regex",
+        "pattern": "POST\\s+RUS\\s+SERVICE|Почта\\s+России"
+      },
+      "normalize_to": "Почта России",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_8e3e433e"
+    },
+    {
+      "priority": 2875,
+      "match": {
+        "type": "regex",
+        "pattern": "WHITE\\s*FUTURE(_P_QR)?"
+      },
+      "normalize_to": "White Future",
+      "category": "",
+      "subcategory": "",
+      "examples": [],
+      "id": "r_3a4f77a6"
+    }
+  ],
+  "mcc_overrides": {}
+}

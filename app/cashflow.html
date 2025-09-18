@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Финансы | Кэшфлоу</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Финансы</div>
+    <nav>
+      <a href="index.html">Дашборд</a>
+      <a href="transactions.html">Операции</a>
+      <a href="pnl.html">P&amp;L</a>
+      <a href="cashflow.html" class="active">Кэшфлоу</a>
+      <a href="budgets.html">Бюджеты</a>
+      <a href="dictionary.html">Словарь</a>
+      <a href="unknown.html">Неопознанные</a>
+      <a href="settings.html">Настройки</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="card">
+      <div class="card-title">Динамика</div>
+      <div class="chart-holder large"><canvas id="cashflow-chart"></canvas></div>
+    </section>
+
+    <section class="grid grid-2">
+      <div class="card">
+        <div class="card-title">Последние движения</div>
+        <div class="table-wrapper">
+          <table id="cashflow-table">
+            <thead>
+              <tr><th>Дата</th><th class="right">Приток</th><th class="right">Отток</th><th class="right">Чистый</th><th class="right">Баланс</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Регулярные платежи</div>
+        <ul id="regular-list" class="regular-list"></ul>
+        <div class="card-title">Прогноз</div>
+        <div class="table-wrapper">
+          <table id="forecast-table">
+            <thead><tr><th>Горизонт</th><th class="right">Прогнозный баланс</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/chart.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui-cashflow.js"></script>
+</body>
+</html>
