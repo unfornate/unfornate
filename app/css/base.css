@@ -365,6 +365,12 @@ textarea:focus {
   justify-content: flex-end;
 }
 
+.filters .filters-note {
+  flex: 1 1 100%;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
 .amount.neg {
   color: var(--danger);
 }
